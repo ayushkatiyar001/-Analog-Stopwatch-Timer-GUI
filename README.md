@@ -46,13 +46,13 @@ An advanced, feature-rich desktop GUI application engineered in Core Java using 
        │ • Updates timeLabel    │           │ • Updates timeLabel    │
        └────────────────────────┘           └────────────────────────┘
 ```
-##📋 Technical Prerequisites
+## 📋 Technical Prerequisites
 Java Development Kit (JDK): Version 8 or higher.
 
 Runtime Libraries: Standard javax.swing and java.awt native libraries (packaged out-of-the-box inside standard Java installations).
 
 ---
-##💻 Compilation & Deployment Steps
+## 💻 Compilation & Deployment Steps
 Step 1: Clone the Repository
 ```Bash
 git clone [https://github.com/ayushkatiyar001/Stopwatch-Timer-App.git](https://github.com/ayushkatiyar001/Stopwatch-Timer-App.git)
@@ -69,7 +69,7 @@ Fire up the byte-code engine by target-pointing the runtime classpath:
 java stopwatch.StopwatchTimerApp
 ```
 ---
-##📂 Structural Module Mapping
+## 📂 Structural Module Mapping
 StopwatchTimerApp (Main Driver & View Context): Handles core lifecycle, thread structures, structural panels, button panels, and dialog operations.
 
 DialPanel (Inner Dynamic Graphics Layout): Manages component redraw protocols, trigonometric angle updates, canvas clearances, and drawing algorithms for vector texturing.
