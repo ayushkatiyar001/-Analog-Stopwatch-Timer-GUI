@@ -1,68 +1,73 @@
-# Analog Stopwatch & Timer GUI
+# Analog Stopwatch & Countdown Timer Application ⏱️
 
-A versatile and user-friendly desktop application built with Java Swing that combines an analog stopwatch and a countdown timer. The application features a clean, intuitive interface with a classic analog dial for visual feedback and a clear digital display.
-
-![Stopwatch Timer Preview](https://i.imgur.com/your-image-url.png)
-*_(Note: You can take a screenshot of your running application and upload it to a site like imgur.com to get a URL for the preview image.)_*
+An advanced, feature-rich desktop GUI application engineered in Core Java using the **Java Swing** and **AWT Graphics** ecosystems. This project seamlessly blends precise digital state engines with a custom-rendered vector analog interface.
 
 ---
 
-## 🌟 Core Features
+## 🚀 Key Architectural Features
 
--   **Dual Mode Functionality**: Seamlessly switch between a stopwatch and a countdown timer.
--   **Analog Dial**: A visually appealing analog dial with a sweeping second hand provides a classic feel.
--   **Digital Display**: A clear `HH:MM:SS` digital clock for precise time reading.
--   **Real-time Date & Clock**: A separate panel displays the current date and time, updated every second.
--   **Standard Controls**: Intuitive **Start**, **Stop**, and **Reset** buttons for easy operation.
--   **User-set Timer**: Easily set a custom duration for the countdown timer using a simple input dialog.
--   **Completion Alert**: Receive a pop-up notification when the countdown timer finishes.
+- **Dual-Mode System Logic:** Effortlessly toggles dynamic processing states between an incremental stopwatch counter and a user-defined decremental countdown timer.
+- **Trigonometric Vector Rendering:** Custom mathematical coordinate geometry (`Math.cos` and `Math.sin` vector tracking) computes pixel offsets to dynamically draw dial ticks and rotate the sweeping analog hand in real-time.
+- **Asynchronous Execution Stack:** Leverages multiple concurrent instances of `javax.swing.Timer` executing in parallel execution frames to handle non-blocking live system clocks, countdown drops, and stopwatch updates.
+- **Thread-Safe Operations:** Formats event cycles cleanly using `SwingUtilities.invokeLater()` to prevent runtime exceptions in window rendering threads.
 
 ---
 
-## 🛠️ Built With
+## 🛠️ Core Technical Pillars Applied
 
--   **Java**: Core programming language.
--   **Java Swing**: Framework for creating the graphical user interface (GUI).
--   **Java AWT**: Used for graphics, layout, and event handling.
-
----
-
-## 🚀 How to Run the Application
-
-You can run this project either from a Java-compatible IDE or via the command line.
-
-### Prerequisites
-
--   Java Development Kit (JDK) 8 or higher installed and configured.
-
-### From an IDE (e.g., IntelliJ, Eclipse, VS Code)
-
-1.  **Clone the repository**:
-    ```bash
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-    ```
-2.  **Open the project**: Open the cloned folder as a new project in your IDE.
-3.  **Locate the main file**: Navigate to `src/stopwatch/StopwatchTimerApp.java`.
-4.  **Run the file**: Right-click on `StopwatchTimerApp.java` and select "Run".
-
-### From the Command Line
-
-1.  **Clone the repository** as shown above.
-2.  **Navigate to the `src` directory** from your terminal:
-    ```bash
-    cd your-repo-name/src
-    ```
-3.  **Compile the Java code**:
-    ```bash
-    javac stopwatch/StopwatchTimerApp.java
-    ```
-4.  **Run the application**:
-    ```bash
-    java stopwatch.StopwatchTimerApp
-    ```
+1. **Custom Graphics & Anti-Aliasing:** Overrides `paintComponent()` inside an inner class structure, utilizing standard rendering hints to output crisp vector edges without relying on image resources.
+2. **Event-Driven UI Patterns:** Harnesses the `ActionListener` design pattern to capture button triggers and gracefully direct application data states (Start, Stop, Reset, Set Timer).
+3. **Data Validation Parsing:** Incorporates robust regular expression pattern filtering (`\\d+`) inside user dialog inputs to catch non-numeric entries and prevent calculation crashes.
 
 ---
 
-## 📂 File Structure
+## 📊 Operational Architecture
 
-The project is organized in a standard Java package structure.
+```text
+                        ┌──────────────────────────────┐
+                        │ User Interface (Java Swing)  │
+                        └──────────────┬───────────────┘
+                                       │
+                      [intercepts user actions via buttons]
+                                       │
+                                       ▼
+                       ┌──────────────────────────────┐
+                       │   Central Event Router       │
+                       │     (actionPerformed)        │
+                       └───────┬──────────────┬───────┘
+                               │              │
+                    ┌──────────┘              └──────────┐
+                    ▼                                    ▼
+       ┌────────────────────────┐           ┌────────────────────────┐
+       │     Stopwatch Mode     │           │    Countdown Mode      │
+       ├────────────────────────┤           ├────────────────────────┤
+       │ • Increments elapsed t │           │ • Decrements seconds t │
+       │ • Computes Vector Hand │           │ • Spawns JDialog alert │
+       │ • Updates timeLabel    │           │ • Updates timeLabel    │
+       └────────────────────────┘           └────────────────────────┘
+```
+📋 Technical Prerequisites
+Java Development Kit (JDK): Version 8 or higher.
+
+Runtime Libraries: Standard javax.swing and java.awt native libraries (packaged out-of-the-box inside standard Java installations).
+
+💻 Compilation & Deployment Steps
+Step 1: Clone the Repository
+```Bash
+git clone [https://github.com/ayushkatiyar001/Stopwatch-Timer-App.git](https://github.com/ayushkatiyar001/Stopwatch-Timer-App.git)
+cd Stopwatch-Timer-App
+```
+Step 2: Compile the Module Source
+Compile the explicit package structure using the terminal:
+```Bash
+javac stopwatch/StopwatchTimerApp.java
+```
+Step 3: Run the Application Execution Hook
+Fire up the byte-code engine by target-pointing the runtime classpath:
+```Bash
+java stopwatch.StopwatchTimerApp
+```
+📂 Structural Module Mapping
+StopwatchTimerApp (Main Driver & View Context): Handles core lifecycle, thread structures, structural panels, button panels, and dialog operations.
+
+DialPanel (Inner Dynamic Graphics Layout): Manages component redraw protocols, trigonometric angle updates, canvas clearances, and drawing algorithms for vector texturing.
