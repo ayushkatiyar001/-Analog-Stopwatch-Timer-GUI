@@ -51,6 +51,7 @@ Java Development Kit (JDK): Version 8 or higher.
 
 Runtime Libraries: Standard javax.swing and java.awt native libraries (packaged out-of-the-box inside standard Java installations).
 
+---
 ##💻 Compilation & Deployment Steps
 Step 1: Clone the Repository
 ```Bash
@@ -67,6 +68,7 @@ Fire up the byte-code engine by target-pointing the runtime classpath:
 ```Bash
 java stopwatch.StopwatchTimerApp
 ```
+---
 ##📂 Structural Module Mapping
 StopwatchTimerApp (Main Driver & View Context): Handles core lifecycle, thread structures, structural panels, button panels, and dialog operations.
 
